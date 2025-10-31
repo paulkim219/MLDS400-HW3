@@ -1,5 +1,6 @@
 # Version control for mathematical models
 numpy==2.3.3
 pandas==2.3.2
+sklearn=1.7.2
 # Version control for plotting
 matplotlib==3.10.6
