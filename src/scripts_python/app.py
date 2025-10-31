@@ -3,13 +3,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 import time
+import warnings
 
+# Ignore all warnings
+warnings.filterwarnings("ignore")
 
 def print_divider(df):
     # Print current dataset
     print("Current dataset:")
     print(df.head())
-    print("---------------------------------------------")
+    print("-----------------------------------------------------------------------------------")
 
 # Method to clean the data given a Titanic dataset
 def clean_data(input_data_location):
@@ -23,8 +26,8 @@ def clean_data(input_data_location):
     print_divider(df)
 
     # Drop the unncessary columns
-    print("Dropping Columns PassengerId, Ticket, Name, and Cabin...")
-    df = df.drop(columns = ['PassengerId', 'Ticket', 'Name', 'Cabin'])
+    print("Dropping Columns Ticket, Name, and Cabin...")
+    df = df.drop(columns = ['Ticket', 'Name', 'Cabin'])
 
     # Print current dataset
     print_divider(df)
@@ -110,11 +113,25 @@ def run_logistic_regression(train_data_location = "", test_data_location = ""):
 
     print(f"Percentage of people predicted to have survived: {float(np.round(df_test['Predicted Survived'].value_counts()[1] / len(df_test) * 100.0, 2))}%")
 
+    return df_test[['PassengerId', 'Predicted Survived']]
 
 
 
+# Main class to run the whole program
 def main():
-    run_logistic_regression("data/train.csv", "data/test.csv")
+    df_final = run_logistic_regression("data/train.csv", "data/test.csv")
+    print(f"Final Test Data With Prediction:")
+    print(df_final)
+    # Save to data/gender_submission.csv
+    print(f"Saving DataFrame to a Kaggle Submission CSV File...")
+    df_gender_submission = pd.read_csv("data/gender_submission.csv")
+    df_gender_submission = pd.merge(df_gender_submission, df_final, on='PassengerId', how='inner')
+    df_gender_submission = df_gender_submission[['PassengerId', 'Predicted Survived']].rename(columns={'Predicted Survived': 'Survived'})
 
+    # Save to the gender_submission.csv file
+    print(f"gender_submission.csv updated!")
+    df_gender_submission.to_csv("data/gender_submission.csv")
+
+# Run main()
 if __name__ == "__main__":
     main()

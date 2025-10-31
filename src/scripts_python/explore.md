@@ -1,16 +1,3 @@
-# MLDS400-HW3
-This is my MLDS400 HW3 project on linear regression
-
-This project will perform linear regression in Python and R
-
-To run the code in Python, do the following:
-1. Download the Titanic Kaggle Dataset from https://www.kaggle.com/competitions/titanic/data
-2. Place it in the src/data/ folder
-3. In the main directory of this repository, run "bash run_python_docker.sh"
-4. This should create the docker image, run the container, and provide the output!
-5. The output should be an updated gender_submission.csv with the Logistic Regression Model's predictions
-
-
 # Exploratory Analysis and Data Cleaning 
 
 
@@ -882,28 +869,6 @@ model.fit(X_train, y_train)
 # And predict the test data!
 y_pred = model.predict(X_test)
 ```
-
-
-```python
-# Add the column of prediction to the test dataset
-df_test_method['Predicted Survived'] = y_pred
-```
-
-
-```python
-# Calculate the percentage of those who have survived
-float(np.round(df_test_method['Predicted Survived'].value_counts()[1] / len(df_test_method) * 100.0, 2))
-```
-
-
-
-
-    38.28
-
-
-
-38.28% of people in the test data is predicted to have survived...
-
 
 
 ```python

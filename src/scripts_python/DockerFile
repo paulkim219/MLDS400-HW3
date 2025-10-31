@@ -1,9 +1,9 @@
 # Load from python
 FROM python
-# Copy all files
+# Copy all files, including from data
 RUN mkdir /data
 COPY data/ /data
-COPY scripts/ .
+COPY scripts_python/ .
 # Run requirements to install packages
 RUN pip install --no-cache-dir -r requirements.txt
 # When you run, run app.py
