@@ -334,19 +334,6 @@ df_train_pruned.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -434,19 +421,6 @@ df_train_dummies.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -692,19 +666,6 @@ df_train_dummies.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -887,28 +848,6 @@ model.fit(X_train, y_train)
 # And predict the test data!
 y_pred = model.predict(X_test)
 ```
-
-
-```python
-# Add the column of prediction to the test dataset
-df_test_method['Predicted Survived'] = y_pred
-```
-
-
-```python
-# Calculate the percentage of those who have survived
-float(np.round(df_test_method['Predicted Survived'].value_counts()[1] / len(df_test_method) * 100.0, 2))
-```
-
-
-
-
-    38.28
-
-
-
-38.28% of people in the test data is predicted to have survived...
-
 
 
 ```python
