@@ -9,25 +9,15 @@ To run the code in Python, do the following:
 3. Place train.csv and test.csv in the src/data/ folder
 
 The folder structure should look like
-
 ├── explore_files
-
 ├── src
-
 │   ├── data
-
 │   │   ├── train.csv
-
 │   │   ├── test.csv
-
 │   ├── scripts_python
-
 │   ├── scripts_r
-
 ├── README.md
-
 ├── run_python_docker.sh
-
 └── run_r_docker.sh
 
 4. In the main directory of this repository, run "bash run_python_docker.sh" (The same level as where the .sh file is)
@@ -40,25 +30,15 @@ To run the code in R, do the following:
 3. Place train.csv and test.csv in the src/data/ folder
 
 The folder structure should look like
-
 ├── explore_files
-
 ├── src
-
 │   ├── data
-
 │   │   ├── train.csv
-
 │   │   ├── test.csv
-
 │   ├── scripts_python
-
 │   ├── scripts_r
-
 ├── README.md
-
 ├── run_python_docker.sh
-
 └── run_r_docker.sh
 
 4. In the main directory of this repository, run "bash run_r_docker.sh" (The same level as where the .sh file is)
