@@ -10,6 +10,13 @@ To run the code in Python, do the following:
 4. This should create the docker image, run the container, and provide the output!
 5. The output should be an updated gender_submission.csv with the Logistic Regression Model's predictions
 
+To run the code in R, do the following:
+1. Download the Titanic Kaggle Dataset from https://www.kaggle.com/competitions/titanic/data
+2. Place it in the src/data/ folder
+3. In the main directory of this repository, run "bash run_python_docker.sh"
+4. This should create the docker image, run the container, and provide the output!
+5. The output should be an updated gender_submission.csv with the Logistic Regression Model's predictions
+
 
 # Exploratory Analysis and Data Cleaning 
 

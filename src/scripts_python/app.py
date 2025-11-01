@@ -124,9 +124,7 @@ def main():
     print(df_final)
     # Save to data/gender_submission.csv
     print(f"Saving DataFrame to a Kaggle Submission CSV File...")
-    df_gender_submission = pd.read_csv("data/gender_submission.csv")
-    df_gender_submission = pd.merge(df_gender_submission, df_final, on='PassengerId', how='inner')
-    df_gender_submission = df_gender_submission[['PassengerId', 'Predicted Survived']].rename(columns={'Predicted Survived': 'Survived'})
+    df_gender_submission = df_final[['PassengerId', 'Predicted Survived']].rename(columns={'Predicted Survived': 'Survived'})
 
     # Save to the gender_submission.csv file
     print(f"gender_submission.csv updated!")
