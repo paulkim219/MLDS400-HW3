@@ -5,17 +5,28 @@ This project will perform linear regression in Python and R
 
 To run the code in Python, do the following:
 1. Download the Titanic Kaggle Dataset from https://www.kaggle.com/competitions/titanic/data
-2. Place it in the src/data/ folder
-3. In the main directory of this repository, run "bash run_python_docker.sh"
-4. This should create the docker image, run the container, and provide the output!
-5. The output should be an updated gender_submission.csv with the Logistic Regression Model's predictions
+2. Create the /data folder under src (src/data/)
+3. Place train.csv and test.csv in the src/data/ folder
+4. In the main directory of this repository, run "bash run_python_docker.sh" (The same level as where the .sh file is)
+5. This should create the docker image, run the container, and provide the output!
+6. The output should be an updated gender_submission.csv with the Logistic Regression Model's predictions
 
 To run the code in R, do the following:
 1. Download the Titanic Kaggle Dataset from https://www.kaggle.com/competitions/titanic/data
-2. Place it in the src/data/ folder
-3. In the main directory of this repository, run "bash run_python_docker.sh"
-4. This should create the docker image, run the container, and provide the output!
-5. The output should be an updated gender_submission.csv with the Logistic Regression Model's predictions
+2. Create the /data folder under src (src/data/)
+3. Place train.csv and test.csv in the src/data/ folder
+4. In the main directory of this repository, run "bash run_r_docker.sh" (The same level as where the .sh file is)
+5. This should create the docker image, run the container, and provide the output!
+6. The output should be an updated gender_submission.csv with the Logistic Regression Model's predictions
+
+Don't worry if gender_submission.csv is in src/data/ ! Any docker runs will overwrite the csv file.
+
+If you already have the image and want to run the image again:
+1. cd to src
+2. In src/, run this command: "docker run -v "$(pwd)/data:/data" pythonapp" for Python
+3. Or "docker run -v "$(pwd)/data:/data" rapp" for R
+
+To see the analysis below in a ipynb environment, check src/scripts_python/explore.ipynb
 
 
 # Exploratory Analysis and Data Cleaning 
@@ -323,19 +334,6 @@ df_train_pruned.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -423,19 +421,6 @@ df_train_dummies.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -681,19 +666,6 @@ df_train_dummies.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -876,28 +848,6 @@ model.fit(X_train, y_train)
 # And predict the test data!
 y_pred = model.predict(X_test)
 ```
-
-
-```python
-# Add the column of prediction to the test dataset
-df_test_method['Predicted Survived'] = y_pred
-```
-
-
-```python
-# Calculate the percentage of those who have survived
-float(np.round(df_test_method['Predicted Survived'].value_counts()[1] / len(df_test_method) * 100.0, 2))
-```
-
-
-
-
-    38.28
-
-
-
-38.28% of people in the test data is predicted to have survived...
-
 
 
 ```python
