@@ -2,4 +2,4 @@ cd ./src
 
 docker build . --tag "pythonapp" --file ./scripts_python/DockerFile
 
-docker run pythonapp
+docker run -v "$(pwd)/data:/data" pythonapp

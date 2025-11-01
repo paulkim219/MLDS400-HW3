@@ -119,7 +119,7 @@ def run_logistic_regression(train_data_location = "", test_data_location = ""):
 
 # Main class to run the whole program
 def main():
-    df_final = run_logistic_regression("data/train.csv", "data/test.csv")
+    df_final = run_logistic_regression("/data/train.csv", "/data/test.csv")
     print(f"Final Test Data With Prediction:")
     print(df_final)
     # Save to data/gender_submission.csv
@@ -128,7 +128,7 @@ def main():
 
     # Save to the gender_submission.csv file
     print(f"gender_submission.csv updated!")
-    df_gender_submission.to_csv("data/gender_submission.csv")
+    df_gender_submission.to_csv("/data/gender_submission.csv", index=False)
 
 # Run main()
 if __name__ == "__main__":

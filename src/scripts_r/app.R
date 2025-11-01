@@ -96,17 +96,16 @@ run_logistic_regression <- function(train_data_location, test_data_location) {
 
 # Main function
 main <- function() {
-  df_final <- run_logistic_regression("data/train.csv", "data/test.csv")
+  df_final <- run_logistic_regression("/data/train.csv", "/data/test.csv")
   
   cat("Final Test Data With Prediction:\n")
   print(df_final)
   
   cat("Saving DataFrame to a Kaggle Submission CSV File...\n")
-  df_gender_submission <- read_csv("data/gender_submission.csv", show_col_types = FALSE)
   df_gender_submission <- df_final %>%
     select(PassengerId, Survived = Predicted_Survived)
   
-  write_csv(df_gender_submission, "data/gender_submission.csv")
+  write_csv(df_gender_submission, "/data/gender_submission.csv")
   cat("gender_submission.csv updated!\n")
 }
 
