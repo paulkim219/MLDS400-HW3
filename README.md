@@ -8,8 +8,8 @@ To run the code in Python, do the following:
 2. Create the /data folder under src (src/data/)
 3. Place train.csv and test.csv in the src/data/ folder
 
-```
 The folder structure should look like
+```
 ├── explore_files
 ├── src
 │   ├── data
@@ -31,8 +31,8 @@ To run the code in R, do the following:
 2. Create the /data folder under src (src/data/)
 3. Place train.csv and test.csv in the src/data/ folder
 
-```
 The folder structure should look like
+```
 ├── explore_files
 ├── src
 │   ├── data
