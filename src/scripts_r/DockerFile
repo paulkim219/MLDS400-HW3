@@ -1,0 +1,18 @@
+FROM rocker/r-ver:4.4.1
+
+# Make an app directory
+RUN mkdir my_code
+# Also add a data directory
+RUN mkdir /my_code/data
+
+# add my code to my_code
+COPY scripts_r/ /my_code/
+COPY data/ /my_code/data
+
+# Set working directory
+WORKDIR /my_code
+
+# install packages
+RUN Rscript install_packages.R
+
+CMD ["Rscript", "app.R"]
